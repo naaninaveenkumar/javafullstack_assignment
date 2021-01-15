@@ -1,0 +1,1495 @@
+Select Clause with Where clause 
+
+1) Display details of jobs where the minimum salary is greater than 10000.
+
+ select job_id,salary from employees where salary>10000;
++---------+--------+
+| job_id  | salary |
++---------+--------+
+| AD_PRES |  24000 |
+| AD_VP   |  17000 |
+| AD_VP   |  17000 |
+| FI_MGR  |  12000 |
+| PU_MAN  |  11000 |
+| SA_MAN  |  14000 |
+| SA_MAN  |  13500 |
+| SA_MAN  |  12000 |
+| SA_MAN  |  11000 |
+| SA_MAN  |  10500 |
+| SA_REP  |  10500 |
+| SA_REP  |  11500 |
+| SA_REP  |  11000 |
+| MK_MAN  |  13000 |
+| AC_MGR  |  12000 |
++---------+--------+
+15 rows in set (0.00 sec)
+
+2) Display the first name and join date of the employees who joined between 2002 and 2005.
+
+select first_name,hire_date as join_date from employees where hire_date between '2002' and '2005';
+Empty set, 214 warnings (0.00 sec)
+
+3) Display first name and join date of the employees who is either IT Programmer or Sales Man.
+
+ select first_name,hire_date as join_date,job_id from employees where job_id like '%ST_MAN%' or job_id like '%IT_PROG%';
++------------+------------+---------+
+| first_name | join_date  | job_id  |
++------------+------------+---------+
+| Alexander  | 1990-01-03 | IT_PROG |
+| Bruce      | 1991-05-21 | IT_PROG |
+| David      | 1997-06-25 | IT_PROG |
+| Valli      | 1998-02-05 | IT_PROG |
+| Diana      | 1999-02-07 | IT_PROG |
+| Matthew    | 1996-07-18 | ST_MAN  |
+| Adam       | 1997-04-10 | ST_MAN  |
+| Payam      | 1995-05-01 | ST_MAN  |
+| Shanta     | 1997-10-10 | ST_MAN  |
+| Kevin      | 1999-11-16 | ST_MAN  |
++------------+------------+---------+
+10 rows in set (0.00 sec)
+
+4) Display first name, salary, commission pct, and hire date for employees with salary less than 10000.
+
+ select first_name,salary,commission_pct,hire_date from employees where salary<10000;
++-------------+--------+----------------+------------+
+| first_name  | salary | commission_pct | hire_date  |
++-------------+--------+----------------+------------+
+| Alexander   |   9000 |           NULL | 1990-01-03 |
+| Bruce       |   6000 |           NULL | 1991-05-21 |
+| David       |   4800 |           NULL | 1997-06-25 |
+| Valli       |   4800 |           NULL | 1998-02-05 |
+| Diana       |   4200 |           NULL | 1999-02-07 |
+| Daniel      |   9000 |           NULL | 1994-07-16 |
+| John        |   8200 |           NULL | 1997-09-28 |
+| Ismael      |   7700 |           NULL | 1997-08-30 |
+| Jose Manuel |   7800 |           NULL | 1998-03-07 |
+| Luis        |   6900 |           NULL | 1999-12-07 |
+| Alexander   |   3100 |           NULL | 1995-05-18 |
+| Shelli      |   2900 |           NULL | 1997-12-24 |
+| Sigal       |   2800 |           NULL | 1997-07-24 |
+| Guy         |   2600 |           NULL | 1998-11-15 |
+| Karen       |   2500 |           NULL | 1999-08-10 |
+| Matthew     |   8000 |           NULL | 1996-07-18 |
+| Adam        |   8200 |           NULL | 1997-04-10 |
+| Payam       |   7900 |           NULL | 1995-05-01 |
+| Shanta      |   6500 |           NULL | 1997-10-10 |
+| Kevin       |   5800 |           NULL | 1999-11-16 |
+| Julia       |   3200 |           NULL | 1997-07-16 |
+| Irene       |   2700 |           NULL | 1998-09-28 |
+| James       |   2400 |           NULL | 1999-01-14 |
+| Steven      |   2200 |           NULL | 2000-03-08 |
+| Laura       |   3300 |           NULL | 1997-08-20 |
+| Mozhe       |   2800 |           NULL | 1997-10-30 |
+| James       |   2500 |           NULL | 1997-02-16 |
+| TJ          |   2100 |           NULL | 1999-04-10 |
+| Jason       |   3300 |           NULL | 1996-06-14 |
+| Michael     |   2900 |           NULL | 1998-08-26 |
+| Ki          |   2400 |           NULL | 1999-12-12 |
+| Hazel       |   2200 |           NULL | 2000-02-06 |
+| Renske      |   3600 |           NULL | 1995-07-14 |
+| Stephen     |   3200 |           NULL | 1997-10-26 |
+| John        |   2700 |           NULL | 1998-02-12 |
+| Joshua      |   2500 |           NULL | 1998-04-06 |
+| Trenna      |   3500 |           NULL | 1995-10-17 |
+| Curtis      |   3100 |           NULL | 1997-01-29 |
+| Randall     |   2600 |           NULL | 1998-03-15 |
+| Peter       |   2500 |           NULL | 1998-07-09 |
+| David       |   9500 |           0.25 | 1997-03-24 |
+| Peter       |   9000 |           0.25 | 1997-08-20 |
+| Christopher |   8000 |            0.2 | 1998-03-30 |
+| Nanette     |   7500 |            0.2 | 1998-12-09 |
+| Oliver      |   7000 |           0.15 | 1999-11-23 |
+| Patrick     |   9500 |           0.35 | 1996-03-04 |
+| Allan       |   9000 |           0.35 | 1996-07-01 |
+| Lindsey     |   8000 |            0.3 | 1997-03-10 |
+| Louise      |   7500 |            0.3 | 1997-12-15 |
+| Sarath      |   7000 |           0.25 | 1998-11-03 |
+| Danielle    |   9500 |           0.15 | 1999-03-19 |
+| Mattea      |   7200 |            0.1 | 2000-01-24 |
+| David       |   6800 |            0.1 | 2000-02-23 |
+| Sundar      |   6400 |            0.1 | 2000-03-24 |
+| Amit        |   6200 |            0.1 | 2000-04-21 |
+| Tayler      |   9600 |            0.2 | 1998-01-24 |
+| William     |   7400 |           0.15 | 1999-02-23 |
+| Elizabeth   |   7300 |           0.15 | 1999-03-24 |
+| Sundita     |   6100 |            0.1 | 2000-04-21 |
+| Alyssa      |   8800 |           0.25 | 1997-03-19 |
+| Jonathon    |   8600 |            0.2 | 1998-03-24 |
+| Jack        |   8400 |            0.2 | 1998-04-23 |
+| Kimberely   |   7000 |           0.15 | 1999-05-24 |
+| Charles     |   6200 |            0.1 | 2000-01-04 |
+| Winston     |   3200 |           NULL | 1998-01-24 |
+| Jean        |   3100 |           NULL | 1998-02-23 |
+| Martha      |   2500 |           NULL | 1999-06-21 |
+| Girard      |   2800 |           NULL | 2000-02-03 |
+| Nandita     |   4200 |           NULL | 1996-01-27 |
+| Alexis      |   4100 |           NULL | 1997-02-20 |
+| Julia       |   3400 |           NULL | 1998-06-24 |
+| Anthony     |   3000 |           NULL | 1999-02-07 |
+| Kelly       |   3800 |           NULL | 1997-06-14 |
+| Jennifer    |   3600 |           NULL | 1997-07-13 |
+| Timothy     |   2900 |           NULL | 1998-07-11 |
+| Randall     |   2500 |           NULL | 1999-12-19 |
+| Sarah       |   4000 |           NULL | 1996-02-04 |
+| Britney     |   3900 |           NULL | 1997-03-03 |
+| Samuel      |   3200 |           NULL | 1998-06-01 |
+| Vance       |   2800 |           NULL | 1999-03-17 |
+| Alana       |   3100 |           NULL | 1998-04-24 |
+| Kevin       |   3000 |           NULL | 1998-05-23 |
+| Donald      |   2600 |           NULL | 1999-06-21 |
+| Douglas     |   2600 |           NULL | 2000-01-13 |
+| Jennifer    |   4400 |           NULL | 1987-09-17 |
+| Pat         |   6000 |           NULL | 1997-07-17 |
+| Susan       |   6500 |           NULL | 1994-06-07 |
+| William     |   8300 |           NULL | 1994-06-07 |
++-------------+--------+----------------+------------+
+88 rows in set (0.00 sec)
+
+5) Display job Title, the difference between minimum and maximum salaries for jobs with max salary in the range 10000 to 20000.
+
+select job_id,max(salary)-min(salary) from employees where salary between 10000 and 20000;
++--------+-------------------------+
+| job_id | max(salary)-min(salary) |
++--------+-------------------------+
+| AD_VP  |                    7000 |
++--------+-------------------------+
+1 row in set (0.00 sec)
+
+6) Display employees where the first name or last name starts with S.
+
+select concat(first_name,' ',last_name) as full_name from employees where first_name like 's%' or last_name like 's%';
++------------------+
+| full_name        |
++------------------+
+| Steven King      |
+| Ismael Sciarra   |
+| Shelli Baida     |
+| Sigal Tobias     |
+| Shanta Vollman   |
+| Steven Markle    |
+| Stephen Stiles   |
+| John Seo         |
+| Patrick Sully    |
+| Lindsey Smith    |
+| Sarath Sewall    |
+| Sundar Ande      |
+| William Smith    |
+| Sundita Kumar    |
+| Martha Sullivan  |
+| Nandita Sarchand |
+| Sarah Bell       |
+| Samuel McCain    |
+| Susan Mavris     |
+| Shelley Higgins  |
++------------------+
+20 rows in set (0.00 sec)
+
+7) Display details of jobs in the descending order of the title.
+
+select * from jobs order by job_title desc;
++------------+---------------------------------+------------+------------+
+| job_id     | job_title                       | min_salary | max_salary |
++------------+---------------------------------+------------+------------+
+| ST_MAN     | Stock Manager                   |       5500 |       8500 |
+| ST_CLERK   | Stock Clerk                     |       2000 |       5000 |
+| SH_CLERK   | Shipping Clerk                  |       2500 |       5500 |
+| SA_REP     | Sales Representative            |       6000 |      12000 |
+| SA_MAN     | Sales Manager                   |      10000 |      20000 |
+| PU_MAN     | Purchasing Manager              |       8000 |      15000 |
+| PU_CLERK   | Purchasing Clerk                |       2500 |       5500 |
+| PR_REP     | Public Relations Representative |       4500 |      10500 |
+| AC_ACCOUNT | Public Accountant               |       4200 |       9000 |
+| IT_PROG    | Programmer                      |       4000 |      10000 |
+| AD_PRES    | President                       |      20000 |      40000 |
+| MK_REP     | Marketing Representative        |       4000 |       9000 |
+| MK_MAN     | Marketing Manager               |       9000 |      15000 |
+| HR_REP     | Human Resources Representative  |       4000 |       9000 |
+| FI_MGR     | Finance Manager                 |       8200 |      16000 |
+| AD_VP      | Administration Vice President   |      15000 |      30000 |
+| AD_ASST    | Administration Assistant        |       3000 |       6000 |
+| AC_MGR     | Accounting Manager              |       8200 |      16000 |
+| FI_ACCOUNT | Accountant                      |       4200 |       9000 |
++------------+---------------------------------+------------+------------+
+19 rows in set (0.00 sec)
+
+
+8) Display employees who joined in the month of May.
+
+ select *  from employees where hire_date like '____-%05-__';
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email    | phone_int          | hire_date  | job_id   | salary | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+|         104 | Bruce      | Ernst     | BERNST   | 590.423.4568       | 1991-05-21 | IT_PROG  |   6000 |           NULL |        103 |            60 |
+|         115 | Alexander  | Khoo      | AKHOO    | 515.127.4562       | 1995-05-18 | PU_CLERK |   3100 |           NULL |        114 |            30 |
+|         122 | Payam      | Kaufling  | PKAUFLIN | 650.123.3234       | 1995-05-01 | ST_MAN   |   7900 |           NULL |        100 |            50 |
+|         174 | Ellen      | Abel      | EABEL    | 011.44.1644.429267 | 1996-05-11 | SA_REP   |  11000 |            0.3 |        149 |            80 |
+|         178 | Kimberely  | Grant     | KGRANT   | 011.44.1644.429263 | 1999-05-24 | SA_REP   |   7000 |           0.15 |        149 |          NULL |
+|         197 | Kevin      | Feeney    | KFEENEY  | 650.507.9822       | 1998-05-23 | SH_CLERK |   3000 |           NULL |        124 |            50 |
++-------------+------------+-----------+----------+--------------------+------------+----------+--------+----------------+------------+---------------+
+6 rows in set (0.00 sec)
+
+
+9) Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department is 30.
+
+select *  from employees where commission_pct is null and department_id=30 and salary between 5000 and 10000;
+Empty set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Join 
+
+1). Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+select j.job_title,jh.employee_id,datediff(start_date,end_date) as no_of_days from job_history jh,jobs j where jh.department_id=30;
+Empty set (0.00 sec)
+
+
+2) Display department name and manager first name.
+
+
+ select  d.department_name, e.first_name as manager_name from departments d inner join employees e on (e.employee_id=d.manager_id);
++------------------+--------------+
+| department_name  | manager_name |
++------------------+--------------+
+| Administration   | Jennifer     |
+| Marketing        | Michael      |
+| Purchasing       | Den          |
+| Human Resources  | Susan        |
+| Shipping         | Adam         |
+| IT               | Alexander    |
+| Public Relations | Hermann      |
+| Sales            | John         |
+| Executive        | Steven       |
+| Finance          | Nancy        |
+| Accounting       | Shelley      |
++------------------+--------------+
+11 rows in set (0.00 sec)
+
+
+
+3) Display department name, manager name, and city.
+
+select  d.department_name, e.first_name as manager_name ,l.city from locations l inner join departments d inner join employees e on (e.employee_id=d.manager_id) and l.location_id=d.location_id;;
++------------------+--------------+---------------------+
+| department_name  | manager_name | city                |
++------------------+--------------+---------------------+
+| IT               | Alexander    | Southlake           |
+| Shipping         | Adam         | South San Francisco |
+| Administration   | Jennifer     | Seattle             |
+| Purchasing       | Den          | Seattle             |
+| Executive        | Steven       | Seattle             |
+| Finance          | Nancy        | Seattle             |
+| Accounting       | Shelley      | Seattle             |
+| Marketing        | Michael      | Toronto             |
+| Human Resources  | Susan        | London              |
+| Sales            | John         | Oxford              |
+| Public Relations | Hermann      | Munich              |
++------------------+--------------+---------------------+
+11 rows in set (0.00 sec)
+
+
+4) Display country name, city, and department name.
+
+ select department_name,city,country_name from departments d inner join locations l inner join countries c on d.location_id=l.location_id and l.country_id=c.country_id;
++----------------------+---------------------+--------------------------+
+| department_name      | city                | country_name             |
++----------------------+---------------------+--------------------------+
+| IT                   | Southlake           | United States of America |
+| Shipping             | South San Francisco | United States of America |
+| Administration       | Seattle             | United States of America |
+| Purchasing           | Seattle             | United States of America |
+| Executive            | Seattle             | United States of America |
+| Finance              | Seattle             | United States of America |
+| Accounting           | Seattle             | United States of America |
+| Treasury             | Seattle             | United States of America |
+| Corporate Tax        | Seattle             | United States of America |
+| Control And Credit   | Seattle             | United States of America |
+| Shareholder Services | Seattle             | United States of America |
+| Benefits             | Seattle             | United States of America |
+| Manufacturing        | Seattle             | United States of America |
+| Construction         | Seattle             | United States of America |
+| Contracting          | Seattle             | United States of America |
+| Operations           | Seattle             | United States of America |
+| IT Support           | Seattle             | United States of America |
+| NOC                  | Seattle             | United States of America |
+| IT Helpdesk          | Seattle             | United States of America |
+| Government Sales     | Seattle             | United States of America |
+| Retail Sales         | Seattle             | United States of America |
+| Recruiting           | Seattle             | United States of America |
+| Payroll              | Seattle             | United States of America |
+| Marketing            | Toronto             | Canada                   |
+| Human Resources      | London              | United Kingdom           |
+| Sales                | Oxford              | United Kingdom           |
+| Public Relations     | Munich              | Germany                  |
++----------------------+---------------------+--------------------------+
+27 rows in set (0.00 sec)
+
+5) Display employee name and country in which he is working.
+
+select first_name,country_name from employees e inner join departments d inner join countries c inner join locations l on e.department_id=d.department_id and d.location_id=l.location_id and l.country_id=c.country_id;
++-------------+--------------------------+
+| first_name  | country_name             |
++-------------+--------------------------+
+| Michael     | Canada                   |
+| Pat         | Canada                   |
+| Hermann     | Germany                  |
+| Susan       | United Kingdom           |
+| John        | United Kingdom           |
+| Karen       | United Kingdom           |
+| Alberto     | United Kingdom           |
+| Gerald      | United Kingdom           |
+| Eleni       | United Kingdom           |
+| Peter       | United Kingdom           |
+| David       | United Kingdom           |
+| Peter       | United Kingdom           |
+| Christopher | United Kingdom           |
+| Nanette     | United Kingdom           |
+| Oliver      | United Kingdom           |
+| Janette     | United Kingdom           |
+| Patrick     | United Kingdom           |
+| Allan       | United Kingdom           |
+| Lindsey     | United Kingdom           |
+| Louise      | United Kingdom           |
+| Sarath      | United Kingdom           |
+| Clara       | United Kingdom           |
+| Danielle    | United Kingdom           |
+| Mattea      | United Kingdom           |
+| David       | United Kingdom           |
+| Sundar      | United Kingdom           |
+| Amit        | United Kingdom           |
+| Lisa        | United Kingdom           |
+| Harrison    | United Kingdom           |
+| Tayler      | United Kingdom           |
+| William     | United Kingdom           |
+| Elizabeth   | United Kingdom           |
+| Sundita     | United Kingdom           |
+| Ellen       | United Kingdom           |
+| Alyssa      | United Kingdom           |
+| Jonathon    | United Kingdom           |
+| Jack        | United Kingdom           |
+| Charles     | United Kingdom           |
+| Alexander   | United States of America |
+| Bruce       | United States of America |
+| David       | United States of America |
+| Valli       | United States of America |
+| Diana       | United States of America |
+| Matthew     | United States of America |
+| Adam        | United States of America |
+| Payam       | United States of America |
+| Shanta      | United States of America |
+| Kevin       | United States of America |
+| Julia       | United States of America |
+| Irene       | United States of America |
+| James       | United States of America |
+| Steven      | United States of America |
+| Laura       | United States of America |
+| Mozhe       | United States of America |
+| James       | United States of America |
+| TJ          | United States of America |
+| Jason       | United States of America |
+| Michael     | United States of America |
+| Ki          | United States of America |
+| Hazel       | United States of America |
+| Renske      | United States of America |
+| Stephen     | United States of America |
+| John        | United States of America |
+| Joshua      | United States of America |
+| Trenna      | United States of America |
+| Curtis      | United States of America |
+| Randall     | United States of America |
+| Peter       | United States of America |
+| Winston     | United States of America |
+| Jean        | United States of America |
+| Martha      | United States of America |
+| Girard      | United States of America |
+| Nandita     | United States of America |
+| Alexis      | United States of America |
+| Julia       | United States of America |
+| Anthony     | United States of America |
+| Kelly       | United States of America |
+| Jennifer    | United States of America |
+| Timothy     | United States of America |
+| Randall     | United States of America |
+| Sarah       | United States of America |
+| Britney     | United States of America |
+| Samuel      | United States of America |
+| Vance       | United States of America |
+| Alana       | United States of America |
+| Kevin       | United States of America |
+| Donald      | United States of America |
+| Douglas     | United States of America |
+| Jennifer    | United States of America |
+| Den         | United States of America |
+| Alexander   | United States of America |
+| Shelli      | United States of America |
+| Sigal       | United States of America |
+| Guy         | United States of America |
+| Karen       | United States of America |
+| Steven      | United States of America |
+| Neena       | United States of America |
+| Lex         | United States of America |
+| Nancy       | United States of America |
+| Daniel      | United States of America |
+| John        | United States of America |
+| Ismael      | United States of America |
+| Jose Manuel | United States of America |
+| Luis        | United States of America |
+| Shelley     | United States of America |
+| William     | United States of America |
++-------------+--------------------------+
+106 rows in set (0.00 sec)
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions 
+
+1. Display employees who joined in the month of May.
+
+select first_name,hire_date from employees where hire_date like '____-%05-__';
++------------+------------+
+| first_name | hire_date  |
++------------+------------+
+| Bruce      | 1991-05-21 |
+| Alexander  | 1995-05-18 |
+| Payam      | 1995-05-01 |
+| Ellen      | 1996-05-11 |
+| Kimberely  | 1999-05-24 |
+| Kevin      | 1998-05-23 |
++------------+------------+
+6 rows in set (0.00 sec)
+
+2. Display first name, salary, and round the salary to thousands.
+
+select first_name,round(salary,-3) as salary from employees;
++-------------+--------+
+| first_name  | salary |
++-------------+--------+
+| Steven      |  24000 |
+| Neena       |  17000 |
+| Lex         |  17000 |
+| Alexander   |   9000 |
+| Bruce       |   6000 |
+| David       |   5000 |
+| Valli       |   5000 |
+| Diana       |   4000 |
+| Nancy       |  12000 |
+| Daniel      |   9000 |
+| John        |   8000 |
+| Ismael      |   8000 |
+| Jose Manuel |   8000 |
+| Luis        |   7000 |
+| Den         |  11000 |
+| Alexander   |   3000 |
+| Shelli      |   3000 |
+| Sigal       |   3000 |
+| Guy         |   3000 |
+| Karen       |   2000 |
+| Matthew     |   8000 |
+| Adam        |   8000 |
+| Payam       |   8000 |
+| Shanta      |   6000 |
+| Kevin       |   6000 |
+| Julia       |   3000 |
+| Irene       |   3000 |
+| James       |   2000 |
+| Steven      |   2000 |
+| Laura       |   3000 |
+| Mozhe       |   3000 |
+| James       |   2000 |
+| TJ          |   2000 |
+| Jason       |   3000 |
+| Michael     |   3000 |
+| Ki          |   2000 |
+| Hazel       |   2000 |
+| Renske      |   4000 |
+| Stephen     |   3000 |
+| John        |   3000 |
+| Joshua      |   2000 |
+| Trenna      |   4000 |
+| Curtis      |   3000 |
+| Randall     |   3000 |
+| Peter       |   2000 |
+| John        |  14000 |
+| Karen       |  14000 |
+| Alberto     |  12000 |
+| Gerald      |  11000 |
+| Eleni       |  10000 |
+| Peter       |  10000 |
+| David       |  10000 |
+| Peter       |   9000 |
+| Christopher |   8000 |
+| Nanette     |   8000 |
+| Oliver      |   7000 |
+| Janette     |  10000 |
+| Patrick     |  10000 |
+| Allan       |   9000 |
+| Lindsey     |   8000 |
+| Louise      |   8000 |
+| Sarath      |   7000 |
+| Clara       |  10000 |
+| Danielle    |  10000 |
+| Mattea      |   7000 |
+| David       |   7000 |
+| Sundar      |   6000 |
+| Amit        |   6000 |
+| Lisa        |  12000 |
+| Harrison    |  10000 |
+| Tayler      |  10000 |
+| William     |   7000 |
+| Elizabeth   |   7000 |
+| Sundita     |   6000 |
+| Ellen       |  11000 |
+| Alyssa      |   9000 |
+| Jonathon    |   9000 |
+| Jack        |   8000 |
+| Kimberely   |   7000 |
+| Charles     |   6000 |
+| Winston     |   3000 |
+| Jean        |   3000 |
+| Martha      |   2000 |
+| Girard      |   3000 |
+| Nandita     |   4000 |
+| Alexis      |   4000 |
+| Julia       |   3000 |
+| Anthony     |   3000 |
+| Kelly       |   4000 |
+| Jennifer    |   4000 |
+| Timothy     |   3000 |
+| Randall     |   2000 |
+| Sarah       |   4000 |
+| Britney     |   4000 |
+| Samuel      |   3000 |
+| Vance       |   3000 |
+| Alana       |   3000 |
+| Kevin       |   3000 |
+| Donald      |   3000 |
+| Douglas     |   3000 |
+| Jennifer    |   4000 |
+| Michael     |  13000 |
+| Pat         |   6000 |
+| Susan       |   6000 |
+| Hermann     |  10000 |
+| Shelley     |  12000 |
+| William     |   8000 |
++-------------+--------+
+107 rows in set (0.00 sec)
+
+3. Display first name and date of first salary of the employees.
+
+mysql> select first_name,last_day(hire_date) as first_salary_date from employees;
++-------------+-------------------+
+| first_name  | first_salary_date |
++-------------+-------------------+
+| Steven      | 1987-06-30        |
+| Neena       | 1989-09-30        |
+| Lex         | 1993-01-31        |
+| Alexander   | 1990-01-31        |
+| Bruce       | 1991-05-31        |
+| David       | 1997-06-30        |
+| Valli       | 1998-02-28        |
+| Diana       | 1999-02-28        |
+| Nancy       | 1994-08-31        |
+| Daniel      | 1994-07-31        |
+| John        | 1997-09-30        |
+| Ismael      | 1997-08-31        |
+| Jose Manuel | 1998-03-31        |
+| Luis        | 1999-12-31        |
+| Den         | 1994-12-31        |
+| Alexander   | 1995-05-31        |
+| Shelli      | 1997-12-31        |
+| Sigal       | 1997-07-31        |
+| Guy         | 1998-11-30        |
+| Karen       | 1999-08-31        |
+| Matthew     | 1996-07-31        |
+| Adam        | 1997-04-30        |
+| Payam       | 1995-05-31        |
+| Shanta      | 1997-10-31        |
+| Kevin       | 1999-11-30        |
+| Julia       | 1997-07-31        |
+| Irene       | 1998-09-30        |
+| James       | 1999-01-31        |
+| Steven      | 2000-03-31        |
+| Laura       | 1997-08-31        |
+| Mozhe       | 1997-10-31        |
+| James       | 1997-02-28        |
+| TJ          | 1999-04-30        |
+| Jason       | 1996-06-30        |
+| Michael     | 1998-08-31        |
+| Ki          | 1999-12-31        |
+| Hazel       | 2000-02-29        |
+| Renske      | 1995-07-31        |
+| Stephen     | 1997-10-31        |
+| John        | 1998-02-28        |
+| Joshua      | 1998-04-30        |
+| Trenna      | 1995-10-31        |
+| Curtis      | 1997-01-31        |
+| Randall     | 1998-03-31        |
+| Peter       | 1998-07-31        |
+| John        | 1996-10-31        |
+| Karen       | 1997-01-31        |
+| Alberto     | 1997-03-31        |
+| Gerald      | 1999-10-31        |
+| Eleni       | 2000-01-31        |
+| Peter       | 1997-01-31        |
+| David       | 1997-03-31        |
+| Peter       | 1997-08-31        |
+| Christopher | 1998-03-31        |
+| Nanette     | 1998-12-31        |
+| Oliver      | 1999-11-30        |
+| Janette     | 1996-01-31        |
+| Patrick     | 1996-03-31        |
+| Allan       | 1996-07-31        |
+| Lindsey     | 1997-03-31        |
+| Louise      | 1997-12-31        |
+| Sarath      | 1998-11-30        |
+| Clara       | 1997-11-30        |
+| Danielle    | 1999-03-31        |
+| Mattea      | 2000-01-31        |
+| David       | 2000-02-29        |
+| Sundar      | 2000-03-31        |
+| Amit        | 2000-04-30        |
+| Lisa        | 1997-03-31        |
+| Harrison    | 1998-03-31        |
+| Tayler      | 1998-01-31        |
+| William     | 1999-02-28        |
+| Elizabeth   | 1999-03-31        |
+| Sundita     | 2000-04-30        |
+| Ellen       | 1996-05-31        |
+| Alyssa      | 1997-03-31        |
+| Jonathon    | 1998-03-31        |
+| Jack        | 1998-04-30        |
+| Kimberely   | 1999-05-31        |
+| Charles     | 2000-01-31        |
+| Winston     | 1998-01-31        |
+| Jean        | 1998-02-28        |
+| Martha      | 1999-06-30        |
+| Girard      | 2000-02-29        |
+| Nandita     | 1996-01-31        |
+| Alexis      | 1997-02-28        |
+| Julia       | 1998-06-30        |
+| Anthony     | 1999-02-28        |
+| Kelly       | 1997-06-30        |
+| Jennifer    | 1997-07-31        |
+| Timothy     | 1998-07-31        |
+| Randall     | 1999-12-31        |
+| Sarah       | 1996-02-29        |
+| Britney     | 1997-03-31        |
+| Samuel      | 1998-06-30        |
+| Vance       | 1999-03-31        |
+| Alana       | 1998-04-30        |
+| Kevin       | 1998-05-31        |
+| Donald      | 1999-06-30        |
+| Douglas     | 2000-01-31        |
+| Jennifer    | 1987-09-30        |
+| Michael     | 1996-02-29        |
+| Pat         | 1997-07-31        |
+| Susan       | 1994-06-30        |
+| Hermann     | 1994-06-30        |
+| Shelley     | 1994-06-30        |
+| William     | 1994-06-30        |
++-------------+-------------------+
+107 rows in set (0.00 sec)
+
+
+4. Display first name and experience of the employees.
+
+mysql> select first_name,floor(datediff(curdate(),hire_date)/365) as experienced_years from employees;
++-------------+-------------------+
+| first_name  | experienced_years |
++-------------+-------------------+
+| Steven      |                33 |
+| Neena       |                31 |
+| Lex         |                28 |
+| Alexander   |                31 |
+| Bruce       |                29 |
+| David       |                23 |
+| Valli       |                22 |
+| Diana       |                21 |
+| Nancy       |                26 |
+| Daniel      |                26 |
+| John        |                23 |
+| Ismael      |                23 |
+| Jose Manuel |                22 |
+| Luis        |                21 |
+| Den         |                26 |
+| Alexander   |                25 |
+| Shelli      |                23 |
+| Sigal       |                23 |
+| Guy         |                22 |
+| Karen       |                21 |
+| Matthew     |                24 |
+| Adam        |                23 |
+| Payam       |                25 |
+| Shanta      |                23 |
+| Kevin       |                21 |
+| Julia       |                23 |
+| Irene       |                22 |
+| James       |                22 |
+| Steven      |                20 |
+| Laura       |                23 |
+| Mozhe       |                23 |
+| James       |                23 |
+| TJ          |                21 |
+| Jason       |                24 |
+| Michael     |                22 |
+| Ki          |                21 |
+| Hazel       |                20 |
+| Renske      |                25 |
+| Stephen     |                23 |
+| John        |                22 |
+| Joshua      |                22 |
+| Trenna      |                25 |
+| Curtis      |                23 |
+| Randall     |                22 |
+| Peter       |                22 |
+| John        |                24 |
+| Karen       |                24 |
+| Alberto     |                23 |
+| Gerald      |                21 |
+| Eleni       |                20 |
+| Peter       |                23 |
+| David       |                23 |
+| Peter       |                23 |
+| Christopher |                22 |
+| Nanette     |                22 |
+| Oliver      |                21 |
+| Janette     |                24 |
+| Patrick     |                24 |
+| Allan       |                24 |
+| Lindsey     |                23 |
+| Louise      |                23 |
+| Sarath      |                22 |
+| Clara       |                23 |
+| Danielle    |                21 |
+| Mattea      |                20 |
+| David       |                20 |
+| Sundar      |                20 |
+| Amit        |                20 |
+| Lisa        |                23 |
+| Harrison    |                22 |
+| Tayler      |                22 |
+| William     |                21 |
+| Elizabeth   |                21 |
+| Sundita     |                20 |
+| Ellen       |                24 |
+| Alyssa      |                23 |
+| Jonathon    |                22 |
+| Jack        |                22 |
+| Kimberely   |                21 |
+| Charles     |                21 |
+| Winston     |                22 |
+| Jean        |                22 |
+| Martha      |                21 |
+| Girard      |                20 |
+| Nandita     |                24 |
+| Alexis      |                23 |
+| Julia       |                22 |
+| Anthony     |                21 |
+| Kelly       |                23 |
+| Jennifer    |                23 |
+| Timothy     |                22 |
+| Randall     |                21 |
+| Sarah       |                24 |
+| Britney     |                23 |
+| Samuel      |                22 |
+| Vance       |                21 |
+| Alana       |                22 |
+| Kevin       |                22 |
+| Donald      |                21 |
+| Douglas     |                21 |
+| Jennifer    |                33 |
+| Michael     |                24 |
+| Pat         |                23 |
+| Susan       |                26 |
+| Hermann     |                26 |
+| Shelley     |                26 |
+| William     |                26 |
++-------------+-------------------+
+107 rows in set (0.00 sec)
+
+5. Display the length of first name for employees where last name contain character ‘b’ after 3rd position.
+
+select first_name,length(first_name),last_name from employees where last_name like '___b%';
++------------+--------------------+-----------+
+| first_name | length(first_name) | last_name |
++------------+--------------------+-----------+
+| Gerald     |                  6 | Cambrault |
+| Nanette    |                  7 | Cambrault |
++------------+--------------------+-----------+
+2 rows in set (0.00 sec)
+
+6. Display first name in upper case and email address in lower case for employees where the first name and email address are same irrespective of the case.
+
+ select upper(first_name),lower(email) from employees where lower(first_name)=lower(email);
+Empty set (0.00 sec)
+
+7. Display employees who joined in the current year 1997.
+
+ select first_name,hire_date from employees where hire_date like '1997%';
++------------+------------+
+| first_name | hire_date  |
++------------+------------+
+| David      | 1997-06-25 |
+| John       | 1997-09-28 |
+| Ismael     | 1997-08-30 |
+| Shelli     | 1997-12-24 |
+| Sigal      | 1997-07-24 |
+| Adam       | 1997-04-10 |
+| Shanta     | 1997-10-10 |
+| Julia      | 1997-07-16 |
+| Laura      | 1997-08-20 |
+| Mozhe      | 1997-10-30 |
+| James      | 1997-02-16 |
+| Stephen    | 1997-10-26 |
+| Curtis     | 1997-01-29 |
+| Karen      | 1997-01-05 |
+| Alberto    | 1997-03-10 |
+| Peter      | 1997-01-30 |
+| David      | 1997-03-24 |
+| Peter      | 1997-08-20 |
+| Lindsey    | 1997-03-10 |
+| Louise     | 1997-12-15 |
+| Clara      | 1997-11-11 |
+| Lisa       | 1997-03-11 |
+| Alyssa     | 1997-03-19 |
+| Alexis     | 1997-02-20 |
+| Kelly      | 1997-06-14 |
+| Jennifer   | 1997-07-13 |
+| Britney    | 1997-03-03 |
+| Pat        | 1997-07-17 |
++------------+------------+
+28 rows in set (0.00 sec)
+
+
+8. Display the number of days between system date and 1st January 1995.
+
+select datediff(sysdate(),'1995-01-01');
++----------------------------------+
+| datediff(sysdate(),'1995-01-01') |
++----------------------------------+
+|                             9507 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+9. Display how many employees joined in each month of the current year 1997.
+
+ select count(*),month(hire_date) from employees where hire_date like '1997%' group by month(hire_date) order by month(hire_date) asc;
++----------+------------------+
+| count(*) | month(hire_date) |
++----------+------------------+
+|        3 |                1 |
+|        2 |                2 |
+|        6 |                3 |
+|        1 |                4 |
+|        2 |                6 |
+|        4 |                7 |
+|        3 |                8 |
+|        1 |                9 |
+|        3 |               10 |
+|        1 |               11 |
+|        2 |               12 |
++----------+------------------+
+11 rows in set (0.00 sec)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MySQL Aggregate function 
+
+1. Display employee ID and the date on which he ended his previous job.
+
+select employee_id,end_date from job_history;
++-------------+------------+
+| employee_id | end_date   |
++-------------+------------+
+|         101 | 1993-10-27 |
+|         101 | 1997-03-15 |
+|         102 | 1998-07-24 |
+|         114 | 1999-12-31 |
+|         122 | 1999-12-31 |
+|         176 | 1998-12-31 |
+|         176 | 1999-12-31 |
+|         200 | 1993-06-17 |
+|         200 | 1998-12-31 |
+|         201 | 1999-12-19 |
++-------------+------------+
+10 rows in set (0.00 sec)
+
+2. Display number of employees joined after 15th of the month may in 1997.
+
+ select count(*) from employees where hire_date >='1997-05-15';
++----------+
+| count(*) |
++----------+
+|       68 |
++----------+
+1 row in set (0.00 sec)
+
+
+select with Group by 
+
+3. Display the country ID and number of cities we have in the country.
+
+select country_id,count(*) from locations group by country_id;
++------------+----------+
+| country_id | count(*) |
++------------+----------+
+| AU         |        1 |
+| BR         |        1 |
+| CA         |        2 |
+| CH         |        2 |
+| CN         |        1 |
+| DE         |        1 |
+| IN         |        1 |
+| IT         |        2 |
+| JP         |        2 |
+| MX         |        1 |
+| NL         |        1 |
+| SG         |        1 |
+| UK         |        3 |
+| US         |        4 |
++------------+----------+
+14 rows in set (0.04 sec)
+
+4. Display average salary of employees in each department who have commission percentage.
+
+ select department_id,avg(salary),commission_pct from employees where commission_pct is not null group by department_id;
++---------------+-------------------+----------------+
+| department_id | avg(salary)       | commission_pct |
++---------------+-------------------+----------------+
+|          NULL |              7000 |           0.15 |
+|            80 | 8955.882352941177 |            0.4 |
++---------------+-------------------+----------------+
+2 rows in set (0.00 sec)
+
+5. Display job ID, number of employees, sum of salary, and difference between highest salary and lowest salary of the employees of the job.
+  
+
+ select job_id,count(employee_id),sum(salary),max(salary)-min(salary) from employees group by job_id;
++------------+--------------------+-------------+-------------------------+
+| job_id     | count(employee_id) | sum(salary) | max(salary)-min(salary) |
++------------+--------------------+-------------+-------------------------+
+| AC_ACCOUNT |                  1 |        8300 |                       0 |
+| AC_MGR     |                  1 |       12000 |                       0 |
+| AD_ASST    |                  1 |        4400 |                       0 |
+| AD_PRES    |                  1 |       24000 |                       0 |
+| AD_VP      |                  2 |       34000 |                       0 |
+| FI_ACCOUNT |                  5 |       39600 |                    2100 |
+| FI_MGR     |                  1 |       12000 |                       0 |
+| HR_REP     |                  1 |        6500 |                       0 |
+| IT_PROG    |                  5 |       28800 |                    4800 |
+| MK_MAN     |                  1 |       13000 |                       0 |
+| MK_REP     |                  1 |        6000 |                       0 |
+| PR_REP     |                  1 |       10000 |                       0 |
+| PU_CLERK   |                  5 |       13900 |                     600 |
+| PU_MAN     |                  1 |       11000 |                       0 |
+| SA_MAN     |                  5 |       61000 |                    3500 |
+| SA_REP     |                 30 |      250500 |                    5400 |
+| SH_CLERK   |                 20 |       64300 |                    1700 |
+| ST_CLERK   |                 20 |       55700 |                    1500 |
+| ST_MAN     |                  5 |       36400 |                    2400 |
++------------+--------------------+-------------+-------------------------+
+19 rows in set (0.03 sec)
+
+
+6. Display job ID for jobs with average salary more than 10000.
+
+select job_id,avg(salary) from employees group by job_id having avg(salary)>10000;
++---------+-------------+
+| job_id  | avg(salary) |
++---------+-------------+
+| AC_MGR  |       12000 |
+| AD_PRES |       24000 |
+| AD_VP   |       17000 |
+| FI_MGR  |       12000 |
+| MK_MAN  |       13000 |
+| PU_MAN  |       11000 |
+| SA_MAN  |       12200 |
++---------+-------------+
+7 rows in set (0.00 sec)
+
+7. Display years in which more than 10 employees joined.
+select count(employee_id),date_format(hire_date,'%y') from employees group by date_format(hire_date,'%y') having count(employee_id)>10;
++--------------------+-----------------------------+
+| count(employee_id) | date_format(hire_date,'%y') |
++--------------------+-----------------------------+
+|                 28 | 97                          |
+|                 23 | 98                          |
+|                 18 | 99                          |
+|                 11 | 00                          |
++--------------------+-----------------------------+
+4 rows in set (0.00 sec)
+
+8. Display departments in which more than five employees have commission percentage.
+
+ select department_id,count(employee_id) from employees where commission_pct is not null group by department_id having count(employee_id)>5;
++---------------+--------------------+
+| department_id | count(employee_id) |
++---------------+--------------------+
+|            80 |                 34 |
++---------------+--------------------+
+1 row in set (0.00 sec)
+
+
+9. Display department name and number of employees in the department.
+
+ select department_name,count(employee_id) from employees e inner join departments d on e.department_id=d.department_id group by e.department_id;
++------------------+--------------------+
+| department_name  | count(employee_id) |
++------------------+--------------------+
+| Administration   |                  1 |
+| Marketing        |                  2 |
+| Purchasing       |                  6 |
+| Human Resources  |                  1 |
+| Shipping         |                 45 |
+| IT               |                  5 |
+| Public Relations |                  1 |
+| Sales            |                 34 |
+| Executive        |                  3 |
+| Finance          |                  6 |
+| Accounting       |                  2 |
++------------------+--------------------+
+11 rows in set (0.00 sec)
+
+10. Display employee ID for employees who did more than one job in the past.
+
+ select employee_id from job_history group by employee_id having count(*)>1;
++-------------+
+| employee_id |
++-------------+
+|         101 |
+|         176 |
+|         200 |
++-------------+
+3 rows in set (0.00 sec)
+
+============================================================================================================================================================
+
+12/01/2020
+
+DML Operation 
+
+1. Change salary of employee 115 to 8000 if the existing salary is less than 6000.
+
+update employees set salary=3200 where employee_id=115 and salary<6000;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+2. Insert a new employee into employees with all the required details.
+
+
+
+3. Delete department 20.
+
+
+
+4. Change job ID of employee 110 to IT_PROG if the employee belongs to department 10 and the existing job ID does not start with IT.
+
+5. Insert a row into departments table with manager ID 120 and location ID in any location ID for city Tokyo.
+
+insert into departments values(21,'airforce',120,1200);
+Query OK, 1 row affected (0.12 sec)
+
+6. Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+ select job_title,employee_id,datediff(start_date,end_date) from jobs j,job_history jh where j.job_id=jh.job_id and department_id=30;
+Empty set (0.09 sec)
+
+==================================================================================================================================================================================================
+		
+DDL Assignments  with Constraints 
+		
+Table ---> Customer 
+	custId, firstName,lastName,age,city, mobileNumber, dob
+		Add the Constraints 
+		custId is Primary Key 
+		firstName not null
+		age must be greater than 21
+		mobile must be unique  
+
+create table customer(custid int primary key,first_name varchar(20) not null,last_name varchar(20),age int check(age>21),city varchar(20),mobile_no int unique,dob date);
+Query OK, 0 rows affected (1.93 sec)
+ desc customer;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| custid     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(20) | NO   |     | NULL    |       |
+| last_name  | varchar(20) | YES  |     | NULL    |       |
+| age        | int         | YES  |     | NULL    |       |
+| city       | varchar(20) | YES  |     | NULL    |       |
+| mobile_no  | int         | YES  | UNI | NULL    |       |
+| dob        | date        | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+Table ----> Branch 
+		branchId, branchName, city 
+		Add the Constraints 
+		branchId is Primary Key 
+		branchName not null
+		city not null	
+ create table branch(branch_id int primary key,branch_name varchar(20) not null,city varchar(20) not null);
+Query OK, 0 rows affected (1.04 sec)
+   desc branch;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| branch_id   | int         | NO   | PRI | NULL    |       |
+| branch_name | varchar(20) | NO   |     | NULL    |       |
+| city        | varchar(20) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+Table -----> Account 
+
+		accountNumber, openingBalance, typeOfAccount, status,BankId,CustId
+		Add the Constraints 
+		accountNumber is primary key 
+		openingBalance must be greater than 5000
+		typeOfAccount must be saving/current
+		BankId is foreign key refer to BranchId(Primary key) Branch table 
+		CustId is foreign key refer to Customer(Primary key) Customer table 
+
+ create table account(acc_no int primary key,opening_bal int check(opening_bal>5000),acc_type enum("savings","current"),status varchar(15),bank_id int,custid int,foreign key(bank_id) references branch(branch_id),foreign key(custid) references customer(custid));
+Query OK, 0 rows affected (2.10 sec)
+ desc account;
++-------------+---------------------------+------+-----+---------+-------+
+| Field       | Type                      | Null | Key | Default | Extra |
++-------------+---------------------------+------+-----+---------+-------+
+| acc_no      | int                       | NO   | PRI | NULL    |       |
+| opening_bal | int                       | YES  |     | NULL    |       |
+| acc_type    | enum('savings','current') | YES  |     | NULL    |       |
+| status      | varchar(15)               | YES  |     | NULL    |       |
+| bank_id     | int                       | YES  | MUL | NULL    |       |
+| custid      | int                       | YES  | MUL | NULL    |       |
++-------------+---------------------------+------+-----+---------+-------+
+6 rows in set (0.08 sec)
+	
+Table ----> Transaction 
+		transactionId, transactionDate, MediumOfTransaction, TransactionAmount 
+		Add the Constraints 
+		transactionId is primary key
+
+create table transaction(transactionId int primary key, transactionDate date, MediumOfTransaction varchar(20), TransactionAmount int);
+Query OK, 0 rows affected (1.03 sec)
+desc transaction;
++---------------------+-------------+------+-----+---------+-------+
+| Field               | Type        | Null | Key | Default | Extra |
++---------------------+-------------+------+-----+---------+-------+
+| transactionId       | int         | NO   | PRI | NULL    |       |
+| transactionDate     | date        | YES  |     | NULL    |       |
+| MediumOfTransaction | varchar(20) | YES  |     | NULL    |       |
+| TransactionAmount   | int         | YES  |     | NULL    |       |
++---------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+ 		
+Table ----> Loan 
+		LoanId, loanAmount, customerId and bankdId 
+		Add the Constraints 
+		loadId is primary key 
+		loanAmount must be +ve 
+		BankId is foreign key refer to BranchId(Primary key) Branch table
+
+create table loan(LoanId int primary key,loanAmount int check(loanAmount>0),customerId int,bankId int,foreign key(bankId) references branch(branch_id));
+Query OK, 0 rows affected (1.96 sec)
+
+desc loan;
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| LoanId     | int  | NO   | PRI | NULL    |       |
+| loanAmount | int  | YES  |     | NULL    |       |
+| customerId | int  | YES  |     | NULL    |       |
+| bankId     | int  | YES  | MUL | NULL    |       |
++------------+------+------+-----+---------+-------+
+4 rows in set (0.09 sec)
+
+============================================================================================================================================================================================
+Sub Query 
+
+1. Display details of departments managed by ‘John’.
+
+ select department_name from departments d where d.manager_id in (select employee_id from employees where first_name like '%john');
++-----------------+
+| department_name |
++-----------------+
+| Sales           |
++-----------------+
+1 row in set (0.00 sec)
+
+2. Display employees who did not do any job in the past.
+
+ select first_name from employees where employee_id not in (select employee_id from job_history);
++-------------+
+| first_name  |
++-------------+
+| Steven      |
+| Alexander   |
+| Bruce       |
+| David       |
+| Valli       |
+| Diana       |
+| Nancy       |
+| Daniel      |
+| John        |
+| Ismael      |
+| Jose Manuel |
+| Luis        |
+| Alexander   |
+| Shelli      |
+| Sigal       |
+| Guy         |
+| Karen       |
+| Matthew     |
+| Adam        |
+| Shanta      |
+| Kevin       |
+| Julia       |
+| Irene       |
+| James       |
+| Steven      |
+| Laura       |
+| Mozhe       |
+| James       |
+| TJ          |
+| Jason       |
+| Michael     |
+| Ki          |
+| Hazel       |
+| Renske      |
+| Stephen     |
+| John        |
+| Joshua      |
+| Trenna      |
+| Curtis      |
+| Randall     |
+| Peter       |
+| John        |
+| Karen       |
+| Alberto     |
+| Gerald      |
+| Eleni       |
+| Peter       |
+| David       |
+| Peter       |
+| Christopher |
+| Nanette     |
+| Oliver      |
+| Janette     |
+| Patrick     |
+| Allan       |
+| Lindsey     |
+| Louise      |
+| Sarath      |
+| Clara       |
+| Danielle    |
+| Mattea      |
+| David       |
+| Sundar      |
+| Amit        |
+| Lisa        |
+| Harrison    |
+| Tayler      |
+| William     |
+| Elizabeth   |
+| Sundita     |
+| Ellen       |
+| Alyssa      |
+| Jack        |
+| Kimberely   |
+| Charles     |
+| Winston     |
+| Jean        |
+| Martha      |
+| Girard      |
+| Nandita     |
+| Alexis      |
+| Julia       |
+| Anthony     |
+| Kelly       |
+| Jennifer    |
+| Timothy     |
+| Randall     |
+| Sarah       |
+| Britney     |
+| Samuel      |
+| Vance       |
+| Alana       |
+| Kevin       |
+| Donald      |
+| Douglas     |
+| Pat         |
+| Susan       |
+| Hermann     |
+| Shelley     |
+| William     |
++-------------+
+100 rows in set (0.05 sec)
+
+3. Display job title and average salary for employees who did a job in the past.
+
+select job_title,avg(salary) from employees e inner join jobs j on e.job_id=j.job_id group by job_title;
++---------------------------------+-------------+
+| job_title                       | avg(salary) |
++---------------------------------+-------------+
+| Public Accountant               |        8300 |
+| Accounting Manager              |       12000 |
+| Administration Assistant        |        4400 |
+| President                       |       24000 |
+| Administration Vice President   |       17000 |
+| Accountant                      |        7920 |
+| Finance Manager                 |       12000 |
+| Human Resources Representative  |        6500 |
+| Programmer                      |        5760 |
+| Marketing Manager               |       13000 |
+| Marketing Representative        |        6000 |
+| Public Relations Representative |       10000 |
+| Purchasing Clerk                |        2780 |
+| Purchasing Manager              |       11000 |
+| Sales Manager                   |       12200 |
+| Sales Representative            |        8350 |
+| Shipping Clerk                  |        3215 |
+| Stock Clerk                     |        2785 |
+| Stock Manager                   |        7280 |
++---------------------------------+-------------+
+19 rows in set (0.04 sec)
+
+4. Display country name, city, and number of departments where department has more than 5 employees.
+
+
+
+5. Display details of manager who manages more than 5 employees.
+
+select employee_id,first_name from employees where employee_id in(select manager_id from employees group by manager_id having count(*)>5);
++-------------+------------+
+| employee_id | first_name |
++-------------+------------+
+|         100 | Steven     |
+|         120 | Matthew    |
+|         121 | Adam       |
+|         122 | Payam      |
+|         123 | Shanta     |
+|         124 | Kevin      |
+|         145 | John       |
+|         146 | Karen      |
+|         147 | Alberto    |
+|         148 | Gerald     |
+|         149 | Eleni      |
++-------------+------------+
+11 rows in set (0.00 sec)
+
+
+
+6. Display details of current job for employees who worked as IT Programmers in the past.
+
+ select job_title from jobs where job_id in(select job_id from employees where employee_id in(select employee_id from departments d inner join job_history jh where jh.department_id=d.department_id and job_id='IT_PROG')) ;
++-------------------------------+
+| job_title                     |
++-------------------------------+
+| Administration Vice President |
++-------------------------------+
+1 row in set (0.00 sec)
+
+
+7. Display the details of employees drawing the highest salary in the department.
+
+ select employee_id,first_name,max(salary) from employees group by department_id order by employee_id asc;
++-------------+------------+-------------+
+| employee_id | first_name | max(salary) |
++-------------+------------+-------------+
+|         100 | Steven     |       24000 |
+|         103 | Alexander  |        9000 |
+|         108 | Nancy      |       12000 |
+|         114 | Den        |       11000 |
+|         120 | Matthew    |        8200 |
+|         145 | John       |       14000 |
+|         178 | Kimberely  |        7000 |
+|         200 | Jennifer   |        4400 |
+|         201 | Michael    |       13000 |
+|         203 | Susan      |        6500 |
+|         204 | Hermann    |       10000 |
+|         205 | Shelley    |       12000 |
++-------------+------------+-------------+
+12 rows in set (0.00 sec)
+
+
+8. Display third highest salary of all employees
+
+select max(salary) from employees group by salary order by salary desc limit 2,1;
++-------------+
+| max(salary) |
++-------------+
+|       14000 |
++-------------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
