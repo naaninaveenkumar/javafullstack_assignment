@@ -1075,13 +1075,17 @@ Rows matched: 1  Changed: 0  Warnings: 0
 
 2. Insert a new employee into employees with all the required details.
 
-
+insert into employees values(21,"naani","nickname","abcs@gmail",2211,'1998-01-01',1,12000,20,1,1);
+Query OK, 1 row affected (0.12 sec)
 
 3. Delete department 20.
-
-
+   delete from departments where department_id=20;
+   Query OK, 1 rows affected (0.00 sec)
 
 4. Change job ID of employee 110 to IT_PROG if the employee belongs to department 10 and the existing job ID does not start with IT.
+ update employees set job_id='IT_PROG' where employee_id=110 and department_id=10 and not job_id like "IT%";
+  Query OK, 0 rows affected (0.00 sec)
+
 
 5. Insert a row into departments table with manager ID 120 and location ID in any location ID for city Tokyo.
 
@@ -1354,7 +1358,7 @@ select job_title,avg(salary) from employees e inner join jobs j on e.job_id=j.jo
 19 rows in set (0.04 sec)
 
 4. Display country name, city, and number of departments where department has more than 5 employees.
-
+  
 
 
 5. Display details of manager who manages more than 5 employees.
