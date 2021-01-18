@@ -2,7 +2,7 @@ import java.util.Scanner;
 class Student{
 	int id,age;
 	String name;
-	char grade;
+	String grade;
 	int marks[]=new int[4];
 
 	Scanner sc=new Scanner(System.in);
@@ -28,27 +28,25 @@ class Student{
 			tot=tot+marks[0];
 		}
 	avg=(int)(tot*100/400);
-	System.out.println(tot);
-	System.out.println(avg);
 	if(avg>90)
 		{
-	 		grade='A'+'+';
+	 		grade="A+";
 		}
 	else if(avg<90&&avg>80)
 		{
-	 		grade='A';
+	 		grade="A";
 		}
 	else if(avg<80&&avg>70)
 		{
-	 		grade='B';
+	 		grade="B";
 		}
 	else if(avg<70&&avg>55)
 		{
-	 		grade='c';
+	 		grade="c";
 		}
 	else
 		{
-			 grade='D';
+			 grade="D";
 		}
 	}
 
