@@ -1,2 +1,4 @@
+
 mysql assignment ---> completed (one question doubt).
-java assignments---> five assignments completed.
+------------------------------------------------------------------------------------------------------------------------------
+java assignments
