@@ -71,10 +71,7 @@ public class ProductOperation implements Serializable{
 					break;
 			case 4:System.out.println("products details");
 			       l=ps.displayall();
-			       for(Product a:l)
-			       {
-			    	   System.out.println(l.indexOf(a)+":"+ a);
-			       }
+			     
 			       try {
 			   		FileInputStream fis = new FileInputStream("product1.txt"); 
 			   			 ObjectInputStream ois = new ObjectInputStream(fis); 
@@ -82,7 +79,7 @@ public class ProductOperation implements Serializable{
 						 Poduct p=(Product)obj;
 						for(Product a:l)
 			       			{
-			    	   			System.out.println(p.getPid()+","+p.getPname()+","+p.getPrice());
+			    	   			System.out.println(a.getPid()+","+a.getPname()+","+a.getPrice());
 			       			}
 			   			 System.out.println("Object De-Seriliazed"); 
 			   			 ois.close();
