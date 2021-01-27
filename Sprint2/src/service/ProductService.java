@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -128,13 +129,24 @@ public class ProductService implements Serializable{
 		}
 		public int retrieve(int id)
 		{
-			for(Product p:ll)
-			{
-				if(id==p.getPid())
-				{
-					return p.getPrice();	
-				}
-			}
+			try {
+		   		FileInputStream fis = new FileInputStream("product1.txt"); 
+		   			 ObjectInputStream ois = new ObjectInputStream(fis); 
+		   			 Object obj = ois.readObject(); 
+		   			 Product p=(Product)obj;
+		   			for(Product a:ll)
+					 {
+		   				if(id==a.getPid())
+						{
+							return a.getPrice();	
+						}
+					 }
+		   			 ois.close();
+		   			 fis.close();
+		   			} 
+		       catch (Exception e) {
+		   		System.err.println(e.toString());
+		   		} 
 			return 0;
 		}
 		

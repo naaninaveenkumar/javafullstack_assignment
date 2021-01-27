@@ -56,7 +56,7 @@ public class ProductOperation implements Serializable{
 						System.out.println("product not found");
 					}
 					break;
-			case 3: System.out.println("enter index value of product id to delete");
+			case 3: System.out.println("enter product id to delete");
 					int id1=sc.nextInt();
 					int c=ps.delete(id1);
 					if(c==1)
@@ -78,7 +78,7 @@ public class ProductOperation implements Serializable{
 			   			 Product p=(Product)obj;
 			   			for(Product a:l)
 						 {
-			   				System.out.println(a.getPid()+","+a.getPname()+","+a.getPrice());
+			   				System.out.println("Product Id:"+a.getPid()+","+"Product Name:"+a.getPname()+","+"Product Price:"+a.getPrice());
 						 }
 			   			 System.out.println("Object De-Seriliazed"); 
 			   			 ois.close();
@@ -93,7 +93,8 @@ public class ProductOperation implements Serializable{
 			       int d=ps.retrieve(id2);
 			       if(d>0)
 			       {
-			    	   System.out.println("product price is "+d);   
+			    	   System.out.println("product price is "+d);  
+			    	   System.out.println("Object De-Seriliazed"); 
 			       }
 			       else
 			       {
