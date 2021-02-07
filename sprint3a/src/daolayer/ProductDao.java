@@ -15,6 +15,7 @@ public class ProductDao {
 	 List<Product> ll=new ArrayList<>();
 	 Connection con;
 	PreparedStatement ps;
+	ResultSet rs;
 	
 	public int addProductDao(Product p)
 	{
@@ -41,7 +42,7 @@ public class ProductDao {
 	{
 		int res;
 		try {
-		con = dc.getConnect();
+		con = DbConnection.getConnect();
 		ps=con.prepareStatement("delete from product where pid=?");
 		ps.setInt(1, id);
 		res=ps.executeUpdate();
@@ -68,14 +69,14 @@ public class ProductDao {
 		{
 			System.err.println(e.toString());
 		}
-		return 1;
+		return 0;
 	}
 	public List<Product> getDetails()
 	{
 		try {
 			con = DbConnection.getConnect();
-			ps = con.prepareStatement("select * from product1");
-			ResultSet rs = ps.executeQuery();
+			ps = con.prepareStatement("select * from product");
+			rs = ps.executeQuery();
 			while(rs.next()) {
 				Product p = new Product();
 				p.setPid(rs.getInt(1));
@@ -83,11 +84,15 @@ public class ProductDao {
 				p.setPprice(rs.getFloat(3));
 				p.setStoredate(rs.getDate(4).toLocalDate());     
 				ll.add(p);
+				
 			}
+		
 		} catch (Exception e) {
 			System.err.println(e.toString());
 		}
 		return ll;
+			
+		
 	
 	}
 }

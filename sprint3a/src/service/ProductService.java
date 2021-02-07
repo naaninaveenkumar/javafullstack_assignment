@@ -87,6 +87,7 @@ public class ProductService {
 		 }
 		 public List<Product> getAllProductByNameAsc() {	
 				l = pd.getDetails();
+				
 				Collections.sort(l,(p1,p2)->p1.getPname().compareTo(p2.getPname()));
 				return l;
 			}

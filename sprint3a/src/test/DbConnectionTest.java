@@ -9,11 +9,11 @@ import org.junit.Test;
 import resource.DbConnection;
 
 public class DbConnectionTest {
-
+ Connection con;
 	@Test
 	public void test() {
 		Connection res = DbConnection.getConnect();
-		assertEquals(null,res);
+		assertNotNull(res);
 	}
 
 }

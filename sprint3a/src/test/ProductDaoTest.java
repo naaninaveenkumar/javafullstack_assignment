@@ -22,13 +22,13 @@ public class ProductDaoTest {
 		
 	}
 
-	//@Test
+	@Test
 	public void testAddproductDao() throws Exception {
 		int res;
 		try {
 		Product p=new Product(2,"computer",30000,LocalDate.now());
 		res=pd.addProductDao(p);
-		assertEquals(0,res);
+		assertEquals(1,res);
 		}
 		catch (Exception e) {
 			System.out.println(e.toString());
@@ -37,23 +37,24 @@ public class ProductDaoTest {
 
 
 
-	//@Test
+	@Test
 	public void testDeleteProductDao()  {
 		try {
 			int res;
 			int id=2;
 			res=pd.deleteProductDao(id);
-			assertEquals(0,res);
+			assertEquals(1,res);
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
 
 	}
 
-	//@Test
+	@Test
 	public void testUpdateProductDao()  {
 		try {
-			int res,id=2,price=27000;
+			int res=0,id=1;
+			float price=27000;
 			res=pd.updateProductDao(id, price);
 			assertEquals(1,res);
 		} catch (Exception e) {
@@ -65,8 +66,8 @@ public class ProductDaoTest {
 	public void testGetDetails(){
 		try {
 			ll=pd.getDetails();
-			Product p=ll.get(0);
-			assertEquals(1,p.getPid());
+			Product p=ll.get(1);
+			assertEquals(2,p.getPid());
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}

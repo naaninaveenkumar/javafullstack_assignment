@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="style2.css">
+    <script type="text/Javascript" >
+     function validate(){
+    var user=document.getElementById("u1").value;
+    var pass=document.getElementById("p1").value;
+    var ht=document.getElementById("html").value;
+    var js=document.getElementById("js").value;
+    if(user.length==0)
+    {
+       
+       document.getElementById("e1").innerHTML="required"
+        return false;
+    }
+    else if(pass.length==0)
+    {
+      
+       document.getElementById("e2").innerHTML="required"
+        return false;
+    }
+    else if(pass.match("(?=^.{6,8}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).*$"))
+    {
+        document.getElementById("e2").innerHTML="Atleast 1-sysmbol,1-uppercase character, 1-lowercase character,1-number and size 6 to 8"  
+        return false;
+    }
+    else if(ht.checked==false && js.checked==false)
+    {
+        document.getElementById("e2").innerHTML="required"
+        return false; 
+    }
+    return true;
+    }
+            
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>Login Page</h2>
+    <form action="customer.html" method="GET" onsubmit="return validate()">
+        <label for="">Username</label>
+        <input type="text" name="uname" id="u1" required><span id="e1" style="color: red;"></span><br></br>
+        <label for="">password</label>
+        <input type="password" name="pass" id="p1" pattern="(?=^.{6,8}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).*$" title="Atleast 1-sysmbol,1-uppercase character, 1-lowercase character,1-number and size 6 to 8" required><span id="e2" style="color:red"></span><br></br>
+        <label for="">validation</label>
+        <input type="radio" name="valid" id="html">html5
+        <input type="radio" name="valid" id="js"  required>javascript<br></br>
+       <button type="submit" value="submit" onclick="return validate()">submit</button>
+    </form>
+</div>
+</body>
+</html>

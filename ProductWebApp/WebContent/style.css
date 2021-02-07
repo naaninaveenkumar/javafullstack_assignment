@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 5 auto 5 auto;  
+  width:100%; 
+  text-align:center;
+  
+  margin: 20px 20px 20px 20px;   
+}
+.box{
+  background:skyblue;
+  width:300px;
+  border-radius:6px;
+  margin: 0 auto 0 auto;
+  padding:0px 0px 70px 0px;
+  border: black 4px solid; 
+}
+.user{
+  background:#ecf0f1;
+  border: black 1px solid;
+  border-bottom: #ccc 2px solid;
+  padding: 8px;
+  width:250px;
+  color:#AAAAAA;
+  margin-top:10px;
+  font-size:1em;
+  border-radius:4px;
+}
+label{
+ float:left;	
+ margin-right:1em;
+ width:7em;
+}
+
+
+

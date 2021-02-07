@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="C:/Users/admin/Downloads/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/admin/Downloads/hamcrest-all-1.3.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/admin/Downloads/mockito-all-1.10.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/admin/Desktop/javademo/jar files/mysql-connector-java-8.0.14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

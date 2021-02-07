@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    function add() {
+        var a=document.getElementById("1num").value;
+        var b=document.getElementById("2num").value;
+        var c=eval(a)+eval(b);
+        document.getElementById("res1").value=c;
+    }
+    function sub() {
+        
+        var a=document.getElementById("1num").value;
+        var b=document.getElementById("2num").value;
+        var d=eval(a)-eval(b);
+        document.getElementById("res1").value=d; 
+       
+    }
+    </script>
+</head>
+<body>
+    <form action="" method="get" >
+        <label for="">1st number</label>
+        <input type="text" name="1num" id="1num"><br/>
+        <label for="">2nd number</label>
+        <input type="text" name="2num" id="2num"> <br/>
+        <label for="" >Result</label>
+        <input type="test" id="res1" value=""><br/>
+        <button type="button" onclick="add()">add</button>
+       <button type="button" onclick="sub()">sub</button>
+      
+    </form>
+    
+</body>
+</html>

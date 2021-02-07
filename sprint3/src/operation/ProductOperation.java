@@ -19,6 +19,7 @@ public class ProductOperation {
 		ProductService ps = new ProductService();
 		Product p ;
 		List<Product> l=new ArrayList<Product>();
+		List<Product> ll=new ArrayList<Product>();
 		Dao dao=new Dao();
 		
 		int var;	
@@ -74,8 +75,9 @@ public class ProductOperation {
 					}
 					break;
 			case 4:System.out.println("products details");
-			       l=ps.displayAll();
-			       l.stream().forEach(e->System.out.println(e.getPid()+","+e.getPname()+","+e.getPprice()*.2+e.getPprice()));
+			       ll=ps.displayAll();
+			       ll.stream().forEach(e->System.out.println("Id is "+e.getPid()+",Name is "+e.getPname()+", Price is "+e.getPprice()*.2+e.getPprice()));
+			       ll.clear();
 			       break;
 			case 5:System.out.println("enter product id to view the price");
 			       int id2=sc.nextInt();
@@ -90,25 +92,42 @@ public class ProductOperation {
 			       }
 			       
 			       break;
-		   case 6:ps.getAllProductByPriceAsc();
-		   		  l.stream().forEach(e->System.out.println(e.getPid()+","+e.getPname()+","+e.getPprice()));
-		   		  break;
-		   case 7:ps.getAllProductByPriceDesc();
-		   			l.stream().forEach(e->System.out.println(e.getPid()+","+e.getPname()+","+e.getPprice()));
-		   		  break;
-		   case 8:ps.getAllProductByNameAsc();
-		   			l.stream().forEach(e->System.out.println(e.getPid()+","+e.getPname()+","+e.getPprice()));
-		   		  break;
-		   case 9:ps.getAllProductByNameDesc();
-		   			l.stream().forEach(e->System.out.println(e.getPid()+","+e.getPname()+","+e.getPprice()));
-		   		  break;
-			case 10:System.exit(0);
-						
+		   case 6:		l=ps.getAllProductByPriceAsc();
+		   				System.out.println("ProductByPriceAsc\n");
+		   		  		l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+		   		  		l.clear();
+		   		  		break;
+		   case 7:		l=ps.getAllProductByPriceDesc();
+		   				System.out.println("ProductByPriceDesc\n");
+		   				l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+		   				l.clear();
+		   				break;
+		   case 8:		l=ps.getAllProductByNameAsc();
+		   				System.out.println("ProductByNameAsc\n");
+		   				l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+		   				l.clear();
+		   				break;
+		   case 9:		l=ps.getAllProductByNameDesc();
+		   				System.out.println("ProductByNameDesc\n");
+		   				l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+		   				l.clear();
+		   				break;
+		   case 10:		l=ps.getAllProductByPidAsc();
+		   				System.out.println("ProductByPidAsc\n");
+   						l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+   						l.clear();
+   						break;
+			case 11:	l=ps.getAllProductByPidDesc();
+						System.out.println("ProductByPidDesc\n");
+   						l.stream().forEach(e->System.out.println("Id is "+e.getPid()+", Name is "+e.getPname()+", Price is "+e.getPprice()));
+   						l.clear();
+   						break;
+			case 12:System.exit(0);			
 			default: System.out.println("enter valid option");       
 			
 			}
 					
-		}while(var<=10);
+		}while(var<=12);
 	}
 
 }
